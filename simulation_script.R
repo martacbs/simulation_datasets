@@ -1,49 +1,43 @@
-#Read your csv
-csvData <- read.csv("read you csv", header=T, sep=";",skip = 0)
-View(csvData)
+#necessary packages to be installed
+#install.packages("fitdistrplus")
+#install.packages("actuar")
 
 #Variable to study
 consumptionData<-csv$yourVariableInStudy
 
-#necessary to install a package fitdistrplus
-#install.packages("fitdistrplus")
-
-#To determined the parameters to correspond a weibull distribution
+#estimate a parameters to weibull distribution
 fw <- fitdist(consumptionData, "weibull")
 #Summary of data the weibull distribution
 summary(fw)
 #Plot's to analyze the data to adequate a distribution (histogram,q-q plot, cdf's and p-p plot)
 plot(fw)
 
-#To determined the parameters to correspond a  fit to gamma distribution
+#estimate a parameters to gamma distribution 
 fitg <- fitdist(consumptionData, "gamma")
 #Summary of data the gamma distribution
 summary(fitg)
 #Plot's to analyze the data to adequate a distribution (histogram,q-q plot, cdf's and p-p plot)
 plot(fitg)
 
-#To determined the parameters to correspond a  fit to normal distribution
+#estimate a parameterst o normal distribution
 fdn <- fitdist(consumptionData, "norm")
 #Summary of data the gamma distribution
 summary(fdn)
 #Plot's to analyze the data to adequate a distribution (histogram,q-q plot, cdf's and p-p plot)
 plot(fdn)
 
-#To determined the parameters to correspond a  fit to gamma distributionLog-Normal distribution
+#estimate a parameters to a Log-Normal distribution
 fitln <- fitdist(consumptionData, "lnorm")
 #Summary of data the Log-Normal distribution
 summary(fitln)
 #Plot's to analyze the data to adequate a distribution (histogram,q-q plot, cdf's and p-p plot)
 plot(fitln)
 
-#necessary to install a package actuar
-#install.packages("actuar")
 ft_llogis <- fitdist(consumptionData,"llogis")
 #Summary of data the log-logistic distribution
 summary(ft_llogis)
 #Plot's to analyze the data to adequate a distribution (histogram,q-q plot, cdf's and p-p plot)
 plot(ft_llogis)
-
 
 plot.legend <- c("Weibull", "Log-Normal", "Gamma","Log-logistic", "Normal")
 par(mfrow = c(2, 2))
